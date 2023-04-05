@@ -19,24 +19,10 @@ const getRandomFood = () => {
   return [x, y];
 };
 
-// const initialState = {
-//   food: getRandomFood(),
-//   direction: "RIGHT",
-//   speed: 1000,
-//   route: "menu",
-//   snakeDots: [[0, 0], [0, 2]]
-// }
-
 function App() {
   const dispatch = useDispatch()
   const selectGameState = state => state.gameState
   const gameState = useSelector(selectGameState)
-
-  // const [route, setRoute] = useState(initialState.route);
-  // const [snakeDots, setSnakeDots] = useState(initialState.snakeDots);
-  // const [food, setFood] = useState(initialState.food);
-  // const [direction, setDirection] = useState(initialState.direction);
-  // const [speed, setSpeed] = useState(initialState.speed);
 
   useEffect(() => {
     if (!gameState || gameState.route != "game") return;
@@ -46,14 +32,9 @@ function App() {
     return () => clearInterval(interval);
   }, [gameState.route, gameState.snakeDots]);
 
-  // function componentDidMount() {
-  //   setInterval(moveSnake, speed);
-  // }
-
   function moveSnake() {
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
-    // if (route === "game") {
       switch (gameState.direction) {
         case "RIGHT":
           head = [head[0] + 2, head[1]];
@@ -71,13 +52,10 @@ function App() {
       dots.push(head);
       dots.shift();
       dispatch({ type: 'gameState/setSnakeDots', payload: dots })
-      // setSnakeDots(dots);
-    // }
   };
 
   function onRouteChange() {
     dispatch({ type: 'gameState/setRoute', payload: "game" });
-    // setRoute("game");
   };
 
   function onKeyDown(e) {
@@ -108,8 +86,6 @@ function App() {
 
     dispatch({ type: 'gameState/setDirection', payload: "DOWN" });
     dispatch({ type: 'gameState/setSnakeDots', payload: dots });
-    // setDirection("DOWN");
-    // setSnakeDots(dots);
   };
 
   function onUp() {
@@ -122,8 +98,6 @@ function App() {
 
     dispatch({ type: 'gameState/setDirection', payload: "UP" });
     dispatch({ type: 'gameState/setSnakeDots', payload: dots });
-    // setDirection("UP");
-    // setSnakeDots(dots);
   };
 
   function onRight() {
@@ -136,8 +110,6 @@ function App() {
 
     dispatch({ type: 'gameState/setDirection', payload: "RIGHT" });
     dispatch({ type: 'gameState/setSnakeDots', payload: dots });
-    // setDirection("RIGHT");
-    // setSnakeDots(dots);
   };
 
   function onLeft() {
@@ -150,8 +122,6 @@ function App() {
 
     dispatch({ type: 'gameState/setDirection', payload: "LEFT" });
     dispatch({ type: 'gameState/setSnakeDots', payload: dots });
-    // setDirection("LEFT");
-    // setSnakeDots(dots);
   };
 
   return (
