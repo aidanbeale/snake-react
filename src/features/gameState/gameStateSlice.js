@@ -1,13 +1,19 @@
 const initialState = {
-  food: [3, 2],
+  food: [12, 2],
   direction: "RIGHT",
-  speed: 500,
+  speed: 250,
   route: "menu",
   snakeDots: [[0, 0], [0, 2]]
 }
 
 export default function gameStateReducer(state = initialState, action) {
   switch (action.type) {
+    case 'gameState/setFood': {
+      return {
+        ...state,
+        food: action.payload
+      }
+    }
     case 'gameState/setDirection': {
       return {
         ...state,

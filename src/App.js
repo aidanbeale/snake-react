@@ -32,6 +32,11 @@ function App() {
     return () => clearInterval(interval);
   }, [gameState.route, gameState.snakeDots]);
 
+  useEffect(() => {
+    if (!gameState || gameState.route != "game") return;
+    onSnakeEats();
+  }, [gameState.snakeDots])
+
   function moveSnake() {
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
@@ -53,6 +58,28 @@ function App() {
       dots.shift();
       dispatch({ type: 'gameState/setSnakeDots', payload: dots })
   };
+
+  function onSnakeEats() {
+    let head = gameState.snakeDots[gameState.snakeDots.length - 1];
+    let food = gameState.food;
+    if (head[0] == food[0] && head[1] == food[1]) {
+      dispatch({ type: 'gameState/setFood', payload: getRandomFood() });
+      increaseSnake();
+      increaseSpeed();
+    }
+  }
+
+  function increaseSnake() {
+    let newSnake = [...gameState.snakeDots];
+    newSnake.unshift([]);
+    dispatch({ type: 'gameState/setSnakeDots', payload: newSnake });
+  }
+
+  function increaseSpeed() {
+    if (gameState.speed > 10) {
+      dispatch({ type: 'gameState/setSpeed', payload: gameState.speed - 20 });
+    }
+  }
 
   function onRouteChange() {
     dispatch({ type: 'gameState/setRoute', payload: "game" });
