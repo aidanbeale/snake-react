@@ -24,6 +24,8 @@ function App() {
   const selectGameState = state => state.gameState
   const gameState = useSelector(selectGameState)
 
+  document.onkeydown = onKeyDown;
+
   useEffect(() => {
     if (!gameState || gameState.route != "game") return;
     const interval = setInterval(() => {
@@ -131,6 +133,7 @@ function App() {
   }
 
   function onDown() {
+    if (gameState.direction == "DOWN") return; 
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
 
@@ -143,6 +146,7 @@ function App() {
   };
 
   function onUp() {
+    if (gameState.direction == "UP") return; 
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
 
@@ -155,6 +159,7 @@ function App() {
   };
 
   function onRight() {
+    if (gameState.direction == "RIGHT") return; 
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
 
@@ -167,6 +172,7 @@ function App() {
   };
 
   function onLeft() {
+    if (gameState.direction == "LEFT") return; 
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
 
@@ -185,7 +191,7 @@ function App() {
             <Menu onRouteChange={onRouteChange} />
           </div>
         ) : (
-          <div onKeyDown={onKeyDown}>
+          <div>
             <div className="game-area">
               <Snake snakeDots={gameState.snakeDots} />
               <Food food={gameState.food} />
