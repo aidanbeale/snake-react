@@ -3,7 +3,8 @@ const initialState = {
   direction: "RIGHT",
   speed: 250,
   route: "menu",
-  snakeDots: [[0, 0], [0, 2]]
+  snakeDots: [[0, 0], [0, 2]],
+  score: 0
 }
 
 export default function gameStateReducer(state = initialState, action) {
@@ -36,6 +37,12 @@ export default function gameStateReducer(state = initialState, action) {
       return {
         ...state,
         route: action.payload
+      }
+    }
+    case 'gameState/setScore': {
+      return {
+        ...state,
+        score: action.payload
       }
     }
     case 'gameState/reset': {

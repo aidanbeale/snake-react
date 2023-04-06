@@ -1,0 +1,18 @@
+.score {
+  color: white;
+}
+
+.score-wrapper  {
+  margin: auto;
+  position: relative;
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 800px) {
+  .score-wrapper {
+    position: relative;
+    width: 350px;
+  }
+}

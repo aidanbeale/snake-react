@@ -8,7 +8,7 @@ body {
   height: 500px;
   border: 2px solid #dc042c;
   border-radius: 10px;
-  margin: 50px auto;
+  margin: 0px auto 50px auto;
   display: flex;
   flex-wrap: wrap;
   box-shadow: 0 0 10px #abbfc0;

@@ -9,6 +9,7 @@ import Menu from './components/Menu';
 import Snake from './components/Snake';
 import Food from './components/Food';
 import Button from './components/Button';
+import Score from './components/Score';
 
 
 const getRandomFood = () => {
@@ -68,6 +69,7 @@ function App() {
     let food = gameState.food;
     if (head[0] == food[0] && head[1] == food[1]) {
       dispatch({ type: 'gameState/setFood', payload: getRandomFood() });
+      dispatch({ type: 'gameState/setScore', payload: gameState.score + 1 });
       increaseSnake();
       increaseSpeed();
     }
@@ -192,6 +194,7 @@ function App() {
           </div>
         ) : (
           <div>
+            <Score score={gameState.score} />
             <div className="game-area">
               <Snake snakeDots={gameState.snakeDots} />
               <Food food={gameState.food} />
