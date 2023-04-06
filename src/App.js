@@ -77,7 +77,7 @@ function App() {
 
   function increaseSpeed() {
     if (gameState.speed > 10) {
-      dispatch({ type: 'gameState/setSpeed', payload: gameState.speed - 20 });
+      dispatch({ type: 'gameState/setSpeed', payload: gameState.speed - 5 });
     }
   }
 

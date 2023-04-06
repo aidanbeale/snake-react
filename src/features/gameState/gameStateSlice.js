@@ -20,6 +20,12 @@ export default function gameStateReducer(state = initialState, action) {
         direction: action.payload
       }
     }
+    case 'gameState/setSpeed': {
+      return {
+        ...state,
+        speed: action.payload
+      }
+    }
     case 'gameState/setSnakeDots': {
       return {
         ...state,
