@@ -38,6 +38,9 @@ export default function gameStateReducer(state = initialState, action) {
         route: action.payload
       }
     }
+    case 'gameState/reset': {
+      return initialState;
+    }
     default:
       return state
   }

@@ -34,6 +34,8 @@ function App() {
 
   useEffect(() => {
     if (!gameState || gameState.route != "game") return;
+    onSnakeOutOfBounds();
+    onSnakeCollapsed();
     onSnakeEats();
   }, [gameState.snakeDots])
 
@@ -102,6 +104,31 @@ function App() {
         break;
     }
   };
+
+  function onSnakeOutOfBounds() {
+    let head = gameState.snakeDots[gameState.snakeDots.length - 1];
+    if (gameState.route === "game") {
+      if (head[0] >= 100 || head[1] >= 100 || head[0] < 0 || head[1] < 0) {
+        gameOver();
+      }
+    }
+  }
+
+  function onSnakeCollapsed() {
+    let snake = [...gameState.snakeDots];
+    let head = snake[snake.length - 1];
+    snake.pop();
+    snake.forEach(dot => {
+      if (head[0] == dot[0] && head[1] == dot[1]) {
+        gameOver();
+      }
+    });
+  }
+
+  function gameOver() {
+    alert(`GAME OVER, your score is ${gameState.snakeDots.length - 2}`);
+    dispatch({ type: 'gameState/reset' });
+  }
 
   function onDown() {
     let dots = [...gameState.snakeDots];
