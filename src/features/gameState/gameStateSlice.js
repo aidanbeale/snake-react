@@ -1,7 +1,7 @@
 const initialState = {
   food: [12, 2],
   direction: "RIGHT",
-  speed: 250,
+  speed: 200,
   route: "menu",
   snakeDots: [[0, 0], [0, 2]],
   score: 0

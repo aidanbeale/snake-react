@@ -80,10 +80,11 @@ function App() {
     newSnake.unshift([]);
     dispatch({ type: 'gameState/setSnakeDots', payload: newSnake });
   }
-
   function increaseSpeed() {
-    if (gameState.speed > 10) {
+    if (gameState.speed > 150) {
       dispatch({ type: 'gameState/setSpeed', payload: gameState.speed - 5 });
+    } else {
+      dispatch({ type: 'gameState/setSpeed', payload: gameState.speed - 2 });
     }
   }
 
