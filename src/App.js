@@ -10,7 +10,7 @@ import Snake from './components/Snake';
 import Food from './components/Food';
 import Button from './components/Button';
 import Score from './components/Score';
-
+import GameOver from './components/GameOver';
 
 const getRandomFood = () => {
   let min = 1;
@@ -132,7 +132,7 @@ function App() {
   }
 
   function gameOver() {
-    dispatch({ type: 'gameState/gameOver' });
+    dispatch({ type: 'gameState/setRoute', payload: "gameOver" });
   }
 
   function onDown() {
@@ -189,11 +189,15 @@ function App() {
 
   return (
     <div>
-      {gameState.route === "menu" || gameState.gameOver ? (
+      {gameState.route === "gameOver" ? (
+        <GameOver score={gameState.score} startGame={startGame} />
+      ) : ""}
+      {gameState.route === "menu" ? (
           <div>
-            <Menu startGame={startGame} gameOver={gameState.gameOver} score={gameState.score} />
+            <Menu startGame={startGame} />
           </div>
-        ) : (
+        ) : ""}
+      {gameState.route === "game" ? (
           <div>
             <Score score={gameState.score} />
             <div className="game-area">
@@ -207,7 +211,7 @@ function App() {
               onUp={onUp}
             />
           </div>
-        )}
+        ) : ""}
     </div>
   );
 }

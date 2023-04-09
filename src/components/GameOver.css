@@ -1,0 +1,44 @@
+.restart {
+  margin: 50px;
+  background: #1e1e1e;
+  color: white;
+  border-radius: 7px;
+  border: 0px;
+  padding: 10px;
+  font-size: 1.2em;
+  box-shadow: 0 0 30px #abbfc0;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.game-over-score {
+  margin-top: 5px;
+}
+
+.hiscores-header {
+  font-size: 1.3em;
+  text-decoration: underline;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.game-over {
+  font-size: 1.8em;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+table, th, td {
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  padding: 2px;
+  border: 1px solid;
+  margin: auto;
+  text-align: center;
+}
+
+td {
+  padding: 5px;
+}

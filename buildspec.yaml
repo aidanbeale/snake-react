@@ -1,4 +1,7 @@
 version: 0.2
+env:
+  variables:
+    HISCORES_API: $HISCORES_API
 phases:
   install:
     runtime-versions:
@@ -10,6 +13,7 @@ phases:
   build:
     commands:
       - echo Build started on 'date'
+      - export REACT_APP_HISCORES_API=${HISCORES_API}
       - npm run build
   post_build:
     commands:
