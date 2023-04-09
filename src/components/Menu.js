@@ -1,15 +1,21 @@
 import React from "react";
 import "./Menu.css";
 
-const Menu = ({ onRouteChange }) => {
+const Menu = ({ startGame, gameOver, score }) => {
   return (
     <div className="wrapper">
+      {gameOver ? (
+        <div>
+          <p className="game-over">GAME OVER</p>
+          <p className="score game-over-score">Score: {score}</p>
+        </div>
+      ) : null}
       <div>
         <input
-          onClick={onRouteChange}
-          className="start"
+          onClick={startGame}
+          className={`start ${gameOver ? ("restart") : ""}`}
           type="button"
-          value="start game"
+          value={gameOver ? ("restart") : ("start game")}
         />
       </div>
     </div>

@@ -88,7 +88,8 @@ function App() {
     }
   }
 
-  function onRouteChange() {
+  function startGame() {
+    dispatch({ type: 'gameState/reset' });
     dispatch({ type: 'gameState/setRoute', payload: "game" });
   };
 
@@ -131,8 +132,7 @@ function App() {
   }
 
   function gameOver() {
-    alert(`GAME OVER, your score is ${gameState.snakeDots.length - 2}`);
-    dispatch({ type: 'gameState/reset' });
+    dispatch({ type: 'gameState/gameOver' });
   }
 
   function onDown() {
@@ -189,9 +189,9 @@ function App() {
 
   return (
     <div>
-      {gameState.route === "menu" ? (
+      {gameState.route === "menu" || gameState.gameOver ? (
           <div>
-            <Menu onRouteChange={onRouteChange} />
+            <Menu startGame={startGame} gameOver={gameState.gameOver} score={gameState.score} />
           </div>
         ) : (
           <div>
