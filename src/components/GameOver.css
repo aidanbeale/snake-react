@@ -30,6 +30,21 @@
   font-weight: bold;
 }
 
+.new-hs {
+  background-color: rgba(240, 248, 255, 0.364);
+}
+
+.new-hs td {
+  padding: 1px;
+}
+
+.new-hs input {
+  padding: 5px;
+  width: 6em;
+  font-family: "Courier New", Courier, monospace;
+
+}
+
 table, th, td {
   font-family: "Courier New", Courier, monospace;
   color: white;
@@ -41,4 +56,9 @@ table, th, td {
 
 td {
   padding: 5px;
+}
+
+p {
+  font-family: "Courier New", Courier, monospace;
+  color: white;
 }

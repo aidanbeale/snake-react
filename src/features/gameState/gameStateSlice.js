@@ -4,7 +4,7 @@ const initialState = {
   speed: 200,
   route: "menu",
   snakeDots: [[0, 0], [0, 2]],
-  score: 0,
+  score: 33,
   gameOver: false
 }
 
