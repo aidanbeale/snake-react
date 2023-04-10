@@ -9,7 +9,6 @@ const Menu = ({ score, startGame }) => {
   useEffect(() => {
     if(!hiscores.length) {
       console.log("Fetching scores...");
-      // fetch('https://m1tumnslz9.execute-api.ap-southeast-2.amazonaws.com/items')
       fetch(process.env.REACT_APP_HISCORES_API + "/items")
         .then((response) => response.json())
         .then((data) => {
