@@ -13,6 +13,9 @@ const Menu = ({ score, startGame }) => {
       fetch(process.env.REACT_APP_HISCORES_API + "/items")
         .then((response) => response.json())
         .then((data) => {
+          data.sort((s1, s2) => {
+            return s2.score - s1.score;
+        });
           setHiscores(data);
         })
         }
@@ -34,7 +37,7 @@ const Menu = ({ score, startGame }) => {
               hiscores.map(item => {
                 return (
                   <tr>
-                    <td>{item.name}</td>
+                    <td>{item.score_name}</td>
                     <td>{item.score}</td>
                   </tr>
                 )
