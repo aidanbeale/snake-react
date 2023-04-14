@@ -1,0 +1,6 @@
+.tile {
+  background: rgb(25, 24, 37);
+  position: absolute;
+  border: 1px inset rgba(243, 243, 246, 0.08);
+  border-radius: 4px;
+}

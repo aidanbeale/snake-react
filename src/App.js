@@ -11,12 +11,13 @@ import Food from './components/Food';
 import Button from './components/Button';
 import Score from './components/Score';
 import GameOver from './components/GameOver';
+import TileArea from './components/TileArea';
 
 const getRandomFood = () => {
   let min = 1;
-  let max = 98;
-  let x = Math.floor((Math.random() * (max - min + 1) + min) / 2) * 2;
-  let y = Math.floor((Math.random() * (max - min + 1) + min) / 2) * 2;
+  let max = 19;
+  let x = Math.floor((Math.random() * (max - min + 1) + min)) * 25;
+  let y = Math.floor((Math.random() * (max - min + 1) + min)) * 25;
   return [x, y];
 };
 
@@ -47,16 +48,16 @@ function App() {
     let head = dots[dots.length - 1];
       switch (gameState.direction) {
         case "RIGHT":
-          head = [head[0] + 2, head[1]];
+          head = [head[0] + 25, head[1]];
           break;
         case "LEFT":
-          head = [head[0] - 2, head[1]];
+          head = [head[0] - 25, head[1]];
           break;
         case "DOWN":
-          head = [head[0], head[1] + 2];
+          head = [head[0], head[1] + 25];
           break;
         case "UP":
-          head = [head[0], head[1] - 2];
+          head = [head[0], head[1] - 25];
           break;
       }
       dots.push(head);
@@ -114,7 +115,8 @@ function App() {
   function onSnakeOutOfBounds() {
     let head = gameState.snakeDots[gameState.snakeDots.length - 1];
     if (gameState.route === "game") {
-      if (head[0] >= 100 || head[1] >= 100 || head[0] < 0 || head[1] < 0) {
+      if (head[0] >= 500 || head[1] >= 500 || head[0] < 0 || head[1] < 0) {
+        debugger
         gameOver();
       }
     }
@@ -140,7 +142,7 @@ function App() {
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
 
-    head = [head[0], head[1] + 2];
+    head = [head[0], head[1] + 25];
     dots.push(head);
     dots.shift();
 
@@ -153,7 +155,7 @@ function App() {
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
 
-    head = [head[0], head[1] - 2];
+    head = [head[0], head[1] - 25];
     dots.push(head);
     dots.shift();
 
@@ -166,7 +168,7 @@ function App() {
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
 
-    head = [head[0] + 2, head[1]];
+    head = [head[0] + 25, head[1]];
     dots.push(head);
     dots.shift();
 
@@ -179,7 +181,7 @@ function App() {
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
 
-    head = [head[0] - 2, head[1]];
+    head = [head[0] - 25, head[1]];
     dots.push(head);
     dots.shift();
 
@@ -203,6 +205,7 @@ function App() {
             <div className="game-area">
               <Snake snakeDots={gameState.snakeDots} />
               <Food food={gameState.food} />
+              <TileArea columns={20} rows={20}/>
             </div>
             <Button
               onDown={onDown}

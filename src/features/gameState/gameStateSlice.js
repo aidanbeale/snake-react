@@ -1,9 +1,9 @@
 const initialState = {
-  food: [12, 2],
+  food: [150, 25],
   direction: "RIGHT",
-  speed: 200,
+  speed: 400,
   route: "menu",
-  snakeDots: [[0, 0], [0, 2]],
+  snakeDots: [[0, 0], [25, 0]],
   score: 0,
   gameOver: false
 }
