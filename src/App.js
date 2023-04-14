@@ -116,7 +116,6 @@ function App() {
     let head = gameState.snakeDots[gameState.snakeDots.length - 1];
     if (gameState.route === "game") {
       if (head[0] >= 500 || head[1] >= 500 || head[0] < 0 || head[1] < 0) {
-        debugger
         gameOver();
       }
     }
