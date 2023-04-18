@@ -1,7 +1,7 @@
 .wrapper {
   position: relative;
   width: 200px;
-  border: 2px solid #dc042c;
+  border: 2px solid white;
   margin: 50px auto;
   margin-top: 200px;
   display: flex;
