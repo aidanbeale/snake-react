@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import Menu from './components/Menu';
 import Snake from './components/Snake';
 import Food from './components/Food';
-import Button from './components/Button';
 import Score from './components/Score';
 import GameOver from './components/GameOver';
 import TileArea from './components/TileArea';
@@ -206,12 +205,6 @@ function App() {
               <Food food={gameState.food} />
               <TileArea columns={20} rows={20}/>
             </div>
-            <Button
-              onDown={onDown}
-              onLeft={onLeft}
-              onRight={onRight}
-              onUp={onUp}
-            />
           </div>
         ) : ""}
     </div>
