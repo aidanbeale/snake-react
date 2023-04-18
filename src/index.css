@@ -35,6 +35,7 @@ body {
   background-color: #dc042c;
   border: 1px solid white;
   z-index: 2;
+  box-shadow: #dc042c 0px 0px 25px;
 }
 
 .food {
@@ -42,6 +43,6 @@ body {
   width: 25px;
   height: 25px;
   background-color: white;
-  /* border-radius: 20px; */
   z-index: 1;
+  box-shadow: white 0px 0px 25px;
 }
