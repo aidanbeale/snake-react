@@ -1,6 +1,6 @@
-# Snake
+# Snake React App
 
-Project adapted from [here](https://codesandbox.io/s/react-snake-game-o11ou).
+Created in React, with Redux for state storage. Hosted in S3, with highscores db in DynamoDB, and accessed through Lambda functions.
 
 ## Available Scripts
 
