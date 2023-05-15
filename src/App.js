@@ -10,6 +10,7 @@ import Food from './components/Food';
 import Score from './components/Score';
 import GameOver from './components/GameOver';
 import TileArea from './components/TileArea';
+import Instructions from './components/Instructions';
 
 const getRandomFood = () => {
   let min = 1;
@@ -206,6 +207,7 @@ function App() {
               <Food food={gameState.food} />
               <TileArea columns={20} rows={20}/>
             </div>
+            <Instructions />
           </div>
         ) : ""}
     </div>

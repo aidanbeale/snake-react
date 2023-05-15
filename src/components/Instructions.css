@@ -1,0 +1,28 @@
+.instructions-container {
+  margin: auto;
+  width: 20%;
+}
+
+.instructions-keys {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+}
+
+.instructions-header {
+  text-align: left;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+}
+
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  margin-right: 8px;
+  outline: 1px solid white;
+  border-radius: 2px;
+}
