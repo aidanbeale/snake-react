@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
 
@@ -28,7 +27,7 @@ function App() {
   document.onkeydown = onKeyDown;
 
   useEffect(() => {
-    if (!gameState || gameState.route != "game") return;
+    if (!gameState || gameState.route !== "game") return;
     const interval = setInterval(() => {
       moveSnake();
     }, gameState.speed);
@@ -36,7 +35,7 @@ function App() {
   }, [gameState.route, gameState.snakeDots]);
 
   useEffect(() => {
-    if (!gameState || gameState.route != "game") return;
+    if (!gameState || gameState.route !== "game") return;
     onSnakeOutOfBounds();
     onSnakeCollapsed();
     onSnakeEats();
@@ -67,7 +66,7 @@ function App() {
   function onSnakeEats() {
     let head = gameState.snakeDots[gameState.snakeDots.length - 1];
     let food = gameState.food;
-    if (head[0] == food[0] && head[1] == food[1]) {
+    if (head[0] === food[0] && head[1] === food[1]) {
       dispatch({ type: 'gameState/setFood', payload: getRandomFood() });
       dispatch({ type: 'gameState/setScore', payload: gameState.score + 1 });
       increaseSnake();
@@ -108,6 +107,8 @@ function App() {
       case 40:
         onDown();
         break;
+      default:
+        break;
     }
   };
 
@@ -125,7 +126,7 @@ function App() {
     let head = snake[snake.length - 1];
     snake.pop();
     snake.forEach(dot => {
-      if (head[0] == dot[0] && head[1] == dot[1]) {
+      if (head[0] === dot[0] && head[1] === dot[1]) {
         gameOver();
       }
     });
@@ -136,7 +137,7 @@ function App() {
   }
 
   function onDown() {
-    if (gameState.direction == "DOWN") return; 
+    if (gameState.direction === "DOWN") return; 
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
 
@@ -149,7 +150,7 @@ function App() {
   };
 
   function onUp() {
-    if (gameState.direction == "UP") return; 
+    if (gameState.direction === "UP") return; 
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
 
@@ -162,7 +163,7 @@ function App() {
   };
 
   function onRight() {
-    if (gameState.direction == "RIGHT") return; 
+    if (gameState.direction === "RIGHT") return; 
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
 
@@ -175,7 +176,7 @@ function App() {
   };
 
   function onLeft() {
-    if (gameState.direction == "LEFT") return; 
+    if (gameState.direction === "LEFT") return; 
     let dots = [...gameState.snakeDots];
     let head = dots[dots.length - 1];
 
